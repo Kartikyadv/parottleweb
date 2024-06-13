@@ -22,7 +22,6 @@ const UserPage = () => {
 			try {
 				const res = await fetch(`/api/posts/user/${username}`);
 				const data = await res.json();
-				console.log(data);
 				setPosts(data);
 			} catch (error) {
 				showToast("Error", error.message, "error");
@@ -34,18 +33,18 @@ const UserPage = () => {
 
 		getPosts();
 	}, [username, showToast, setPosts, user]);
-
 	if (!user && loading) {
 		return (
 			<Flex justifyContent={"center"}>
 				<Spinner size={"xl"} />
 			</Flex>
 		);
-	}
-
-	if (!user && !loading) return <h1>User not found</h1>;
-
-	return (
+		}
+		
+		if (!user && !loading) return <h1>User not found</h1>;
+		
+		// console.log(user);
+		return (
 		<>
 			<UserHeader user={user} />
 

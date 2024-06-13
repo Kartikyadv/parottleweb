@@ -22,7 +22,7 @@ const Conversation = ({ conversation, isOnline }) => {
 	const [selectedConversation, setSelectedConversation] = useRecoilState(selectedConversationAtom);
 	const colorMode = useColorMode();
 
-	console.log("selectedConverstion", selectedConversation);
+	// console.log("selectedConverstion", selectedConversation);
 	return (
 		<Flex
 			gap={4}
@@ -64,7 +64,7 @@ const Conversation = ({ conversation, isOnline }) => {
 				<Text fontWeight='700' display={"flex"} alignItems={"center"}>
 					{user.username} <Image src='/verified.png' w={4} h={4} ml={1} />
 				</Text>
-				<Text fontSize={"xs"} display={"flex"} alignItems={"center"} gap={1}>
+				<Box fontSize={"xs"} display={"flex"} alignItems={"center"} gap={1}>
 					{currentUser._id === lastMessage.sender ? (
 						<Box color={lastMessage.seen ? "blue.400" : ""}>
 							<BsCheck2All size={16} />
@@ -75,7 +75,7 @@ const Conversation = ({ conversation, isOnline }) => {
 					{lastMessage.text.length > 18
 						? lastMessage.text.substring(0, 18) + "..."
 						: lastMessage.text || <BsFillImageFill size={16} />}
-				</Text>
+				</Box>
 			</Stack>
 		</Flex>
 	);

@@ -13,6 +13,8 @@ const useGetUserProfile = () => {
 			try {
 				const res = await fetch(`/api/users/profile/${username}`);
 				const data = await res.json();
+				// console.log(username);
+				// console.log(data);
 				if (data.error) {
 					showToast("Error", data.error, "error");
 					return;
@@ -29,8 +31,9 @@ const useGetUserProfile = () => {
 			}
 		};
 		getUser();
-	}, [username, showToast]);
-
+		}, [username, showToast]);
+		
+		// console.log(user);
 	return { loading, user };
 };
 
