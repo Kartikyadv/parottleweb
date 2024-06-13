@@ -43,7 +43,6 @@ const UserPage = () => {
 		
 		if (!user && !loading) return <h1>User not found</h1>;
 		
-		// console.log(user);
 		return (
 		<>
 			<UserHeader user={user} />
