@@ -31,7 +31,7 @@ const MessageContainer = () => {
 			}
 
 			setConversations((prev) => {
-				const updatedConversations = prev.map((conversation) => {
+				const updatedConversations = prev?.map((conversation) => {
 					if (conversation._id === message.conversationId) {
 						return {
 							...conversation,
@@ -62,7 +62,7 @@ const MessageContainer = () => {
 		socket.on("messagesSeen", ({ conversationId }) => {
 			if (selectedConversation._id === conversationId) {
 				setMessages((prev) => {
-					const updatedMessages = prev.map((message) => {
+					const updatedMessages = prev?.map((message) => {
 						if (!message.seen) {
 							return {
 								...message,
@@ -124,7 +124,7 @@ const MessageContainer = () => {
 
 			<Flex flexDir={"column"} gap={4} my={4} p={2} height={"400px"} overflowY={"auto"}>
 				{loadingMessages &&
-					[...Array(5)].map((_, i) => (
+					[...Array(5)]?.map((_, i) => (
 						<Flex
 							key={i}
 							gap={2}
@@ -144,7 +144,7 @@ const MessageContainer = () => {
 					))}
 
 				{!loadingMessages &&
-					messages.map((message) => (
+					messages?.map((message) => (
 						<Flex
 							key={message._id}
 							direction={"column"}

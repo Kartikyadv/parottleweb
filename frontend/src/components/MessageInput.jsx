@@ -58,7 +58,7 @@ const MessageInput = ({ setMessages }) => {
 			setMessages((messages) => [...messages, data]);
 
 			setConversations((prevConvs) => {
-				const updatedConversations = prevConvs.map((conversation) => {
+				const updatedConversations = prevConvs?.map((conversation) => {
 					if (conversation._id === selectedConversation._id) {
 						return {
 							...conversation,

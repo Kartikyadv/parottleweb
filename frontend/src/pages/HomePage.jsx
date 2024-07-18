@@ -17,7 +17,7 @@ const HomePage = () => {
 			try {
 				const res = await fetch("/api/posts/feed");
 				const data = await res.json();
-				if (data.error) {
+				if (data.error || data.message) {
 					showToast("Error", data.error, "error");
 					return;
 				}
@@ -42,7 +42,7 @@ const HomePage = () => {
 					</Flex>
 				)}
 
-				{posts.map((post) => (
+				{posts && posts?.map((post) => (
 					<Post key={post._id} post={post} postedBy={post.postedBy} />
 				))}
 			</Box>

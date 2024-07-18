@@ -37,7 +37,7 @@ const ChatPage = () => {
   useEffect(() => {
     socket?.on("messagesSeen", ({ conversationId }) => {
       setConversations((prev) => {
-        const updatedConversations = prev.map((conversation) => {
+        const updatedConversations = prev?.map((conversation) => {
           if (conversation._id === conversationId) {
             return {
               ...conversation,
@@ -175,7 +175,7 @@ const ChatPage = () => {
           </form>
 
           {loadingConversations &&
-            [0, 1, 2, 3, 4].map((_, i) => (
+            [0, 1, 2, 3, 4]?.map((_, i) => (
               <Flex
                 key={i}
                 gap={4}
@@ -194,7 +194,7 @@ const ChatPage = () => {
             ))}
 
           {!loadingConversations &&
-            conversations.map((conversation) => (
+            conversations?.map((conversation) => (
               <Conversation
                 key={conversation._id}
                 isOnline={onlineUsers.includes(

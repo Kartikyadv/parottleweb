@@ -114,7 +114,7 @@ const PostPage = () => {
 			</Flex>
 
 			<Divider my={4} />
-			{currentPost.replies.map((reply) => (
+			{currentPost.replies?.map((reply) => (
 				<Comment
 					key={reply._id}
 					reply={reply}
